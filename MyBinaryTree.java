@@ -1,6 +1,7 @@
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class MyBinaryTree {
@@ -70,6 +71,23 @@ public class MyBinaryTree {
             if (!stack.isEmpty()) {
                 treeNode = stack.pop();
                 treeNode = treeNode.rightChild;
+            }
+        }
+    }
+
+    public static void levelOrderTraversal(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            System.out.println(node.data);
+            
+            if (node.leftChild != null) {
+                queue.offer(node.leftChild);
+            }
+
+            if (node.rightChild != null) {
+                queue.offer(node.rightChild);
             }
         }
     }
