@@ -6,6 +6,8 @@ public class MyBubbleSort {
     {
         for (int i = 0; i < array.length - 1; i++) 
         {
+            boolean isSorted = true;
+
             for (int j = 0; j < (array.length - i - 1); j++)
             {
                 int tmp = 0;
@@ -14,7 +16,13 @@ public class MyBubbleSort {
                     tmp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = tmp;
+                    isSorted = false;
                 }
+            }
+            
+            if (isSorted)
+            {
+                break;
             }
         }
     }
