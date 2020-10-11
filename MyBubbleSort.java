@@ -4,6 +4,9 @@ public class MyBubbleSort {
 
     public static void bubbleSort(int array[]) 
     {
+        int lastExchangeIndex = 0;
+        int sortBorder = array.length - 1;
+
         for (int i = 0; i < array.length - 1; i++) 
         {
             boolean isSorted = true;
@@ -16,10 +19,13 @@ public class MyBubbleSort {
                     tmp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = tmp;
+                    
                     isSorted = false;
+                    lastExchangeIndex = j;
                 }
             }
             
+            sortBorder = lastExchangeIndex;
             if (isSorted)
             {
                 break;
